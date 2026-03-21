@@ -1,0 +1,11 @@
+{
+  "uuid": "taskman@utkarsh-brainstorm.github.io",
+  "name": "TaskMan",
+  "description": "A calendar-integrated daily task manager and reminder system for the GNOME panel. Visualises task load and completion with dynamic colour coding. Supports timed reminders with Snooze and Dismiss notifications.",
+  "version": 1,
+  "shell-version": [
+    "48",
+    "49"
+  ],
+  "url": "https://github.com/utkarsh-brainstorm/TaskMan"
+}

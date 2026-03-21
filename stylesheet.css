@@ -1,0 +1,342 @@
+/* ============================================================
+   TaskMan Extension Stylesheet — theme-aware
+   Text colors use `inherit` or opacity-relative greys so the
+   UI is readable on both light and dark Adwaita themes.
+   ============================================================ */
+
+/* --- Main popup container --- */
+.taskman-popup-content {
+  padding: 0;
+  min-width: 380px;
+  max-width: 380px;
+}
+
+/* --- Calendar container --- */
+.taskman-calendar-box {
+  padding: 8px 8px 4px 8px;
+}
+
+/* --- Calendar nav --- */
+.taskman-cal-header {
+  padding: 0 4px 6px 4px;
+}
+
+.taskman-cal-nav-btn {
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: transparent;
+  /* inherit color so it adapts to light/dark shell theme */
+  color: inherit;
+  border: none;
+}
+
+.taskman-cal-nav-btn:hover {
+  background: rgba(127, 127, 127, 0.18);
+}
+
+.taskman-cal-month-label {
+  font-size: 1em;
+  font-weight: bold;
+  color: inherit;
+}
+
+/* --- DOW labels (deliberately dimmer than day numbers) --- */
+.taskman-cal-dow {
+  font-size: 0.72em;
+  font-weight: bold;
+  color: rgba(127, 127, 127, 0.75);
+  text-align: center;
+  padding: 2px 0 4px 0;
+}
+
+/* --- Day cells --- */
+.taskman-cal-day {
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  margin: 1px;
+  padding: 0;
+  border: 1px solid transparent;
+}
+
+.taskman-cal-day:hover {
+  border-color: rgba(127, 127, 127, 0.35);
+}
+
+.taskman-cal-day-label {
+  font-size: 0.85em;
+  color: inherit;
+  text-align: center;
+}
+
+.taskman-cal-day-today .taskman-cal-day-label {
+  font-weight: bold;
+}
+
+.taskman-cal-day-selected {
+  border-color: rgba(127, 127, 127, 0.7) !important;
+}
+
+.taskman-cal-day-other-month {
+  opacity: 0.35;
+}
+
+/* --- Thin separator line --- */
+.taskman-separator {
+  background: rgba(127, 127, 127, 0.22);
+  height: 1px;
+  margin: 4px 8px;
+}
+
+/* --- Task list area --- */
+.taskman-tasklist-container {
+  padding: 4px 8px 4px 8px;
+  min-height: 80px;
+  max-height: 540px;
+}
+
+.taskman-scroll {
+  min-height: 60px;
+  max-height: 520px;
+}
+
+/* --- Task row --- */
+.taskman-task-row {
+  padding: 4px 2px;
+  border-radius: 4px;
+  spacing: 6px;
+}
+
+.taskman-task-row:hover {
+  background: rgba(127, 127, 127, 0.08);
+}
+
+/* --- Checkbox --- */
+.taskman-checkbox {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  border-radius: 4px;
+  border: 1.5px solid rgba(127, 127, 127, 0.45);
+  background: transparent;
+  padding: 0;
+}
+
+.taskman-checkbox:hover {
+  border-color: rgba(127, 127, 127, 0.7);
+}
+
+.taskman-checkbox-done {
+  border-color: rgba(34, 197, 94, 0.75);
+  background: rgba(34, 197, 94, 0.18);
+  color: #22c55e;
+}
+
+/* --- Task labels --- */
+.taskman-task-label {
+  font-size: 0.9em;
+  /* inherit: works on both light and dark shell theme */
+  color: inherit;
+}
+
+.taskman-task-label-done {
+  /* intentionally dimmed to signal completion */
+  color: rgba(127, 127, 127, 0.6);
+  text-decoration: line-through;
+}
+
+.taskman-task-label-past {
+  color: rgba(127, 127, 127, 0.65);
+  font-style: italic;
+}
+
+/* --- Delete button --- */
+.taskman-delete-btn {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+  border-radius: 4px;
+  background: transparent;
+  border: none;
+  color: rgba(127, 127, 127, 0.55);
+  padding: 0;
+  font-size: 0.75em;
+}
+
+.taskman-delete-btn:hover {
+  background: rgba(239, 68, 68, 0.22);
+  color: #ef4444;
+}
+
+/* --- Empty placeholder --- */
+.taskman-empty-label {
+  color: rgba(127, 127, 127, 0.65);
+  font-style: italic;
+  font-size: 0.85em;
+  padding: 12px 4px;
+  text-align: center;
+}
+
+/* --- Entry area --- */
+.taskman-entry-box {
+  padding: 6px 8px 4px 8px;
+  spacing: 4px;
+}
+
+.taskman-entry {
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 0.9em;
+  background: rgba(127, 127, 127, 0.1);
+  border: 1px solid rgba(127, 127, 127, 0.22);
+  color: inherit;
+}
+
+.taskman-entry:focus {
+  border-color: rgba(127, 127, 127, 0.45);
+  background: rgba(127, 127, 127, 0.15);
+}
+
+/* --- Mode toggle buttons (📝 / ⏰) --- */
+.taskman-mode-btn {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  border-radius: 6px;
+  background: rgba(127, 127, 127, 0.08);
+  border: 1px solid rgba(127, 127, 127, 0.18);
+  color: rgba(127, 127, 127, 0.7);
+  padding: 0;
+  font-size: 0.95em;
+}
+
+.taskman-mode-btn:hover {
+  background: rgba(127, 127, 127, 0.18);
+  color: inherit;
+}
+
+.taskman-mode-btn-active {
+  background: rgba(127, 127, 127, 0.22);
+  border-color: rgba(127, 127, 127, 0.45);
+  color: inherit;
+}
+
+/* --- Time row (vertical stack in reminder mode) --- */
+.taskman-time-row {
+  padding: 0 8px 6px 8px;
+  spacing: 5px;
+}
+
+/* Quick preset buttons */
+.taskman-preset-row {
+  spacing: 4px;
+}
+
+.taskman-preset-btn {
+  border-radius: 5px;
+  background: rgba(245, 166, 35, 0.12);
+  border: 1px solid rgba(245, 166, 35, 0.30);
+  color: #f5a623;
+  padding: 4px 0;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.taskman-preset-btn:hover {
+  background: rgba(245, 166, 35, 0.26);
+}
+
+/* Custom HH:MM sub-row */
+.taskman-custom-row {
+  spacing: 6px;
+}
+
+.taskman-time-label {
+  font-size: 0.78em;
+  color: rgba(127, 127, 127, 0.75);
+}
+
+.taskman-time-entry {
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 0.88em;
+  background: rgba(245, 166, 35, 0.08);
+  border: 1px solid rgba(245, 166, 35, 0.28);
+  color: inherit;
+}
+
+.taskman-time-entry:focus {
+  border-color: rgba(245, 166, 35, 0.55);
+  background: rgba(245, 166, 35, 0.12);
+}
+
+.taskman-confirm-btn {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  border-radius: 5px;
+  background: rgba(34, 197, 94, 0.18);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  color: #22c55e;
+  padding: 0;
+  font-size: 0.9em;
+}
+
+.taskman-confirm-btn:hover {
+  background: rgba(34, 197, 94, 0.32);
+}
+
+/* --- Reminders section header --- */
+.taskman-reminders-header {
+  font-size: 0.72em;
+  color: rgba(127, 127, 127, 0.65);
+  text-align: center;
+  padding: 8px 4px 4px 4px;
+}
+
+/* --- Reminder row --- */
+.taskman-reminder-row {
+  padding: 4px 2px 4px 8px;
+  border-radius: 4px;
+  spacing: 6px;
+  border-left: 2px solid rgba(245, 166, 35, 0.45);
+}
+
+.taskman-reminder-row:hover {
+  background: rgba(245, 166, 35, 0.07);
+}
+
+.taskman-reminder-icon {
+  font-size: 0.9em;
+}
+
+.taskman-reminder-text {
+  font-size: 0.88em;
+  color: inherit;
+}
+
+.taskman-reminder-chip {
+  font-size: 0.75em;
+  color: #f5a623;
+  background: rgba(245, 166, 35, 0.14);
+  border: 1px solid rgba(245, 166, 35, 0.30);
+  border-radius: 4px;
+  padding: 1px 5px;
+}
+
+/* --- Date label --- */
+.taskman-date-label {
+  font-size: 0.85em;
+  font-weight: bold;
+  color: inherit;
+  padding: 2px 4px 6px 4px;
+}
+
+/* --- Past banner --- */
+.taskman-past-banner {
+  font-size: 0.75em;
+  color: #ef4444;
+  padding: 0 4px 4px 4px;
+  font-style: italic;
+}
