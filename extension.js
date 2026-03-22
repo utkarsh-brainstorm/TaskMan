@@ -331,21 +331,22 @@ const CalendarWidget = GObject.registerClass({
         header.add_child(nextBtn);
         this.add_child(header);
 
-        // DOW row
-        const dowRow = new St.BoxLayout({ reactive: false });
-        for (const d of DAYS_SHORT)
-            dowRow.add_child(new St.Label({ text: d, style_class: 'taskman-cal-dow', x_expand: true, x_align: Clutter.ActorAlign.CENTER }));
-        this.add_child(dowRow);
-
-        // Day grid
+        // Day grid (includes DOW labels in row 0)
         const grid = new St.Widget({ layout_manager: new Clutter.GridLayout({ orientation: Clutter.Orientation.HORIZONTAL }), reactive: true });
         const gl = grid.layout_manager;
+
+        // DOW row (Row 0 in Grid)
+        for (let i = 0; i < 7; i++) {
+            const lbl = new St.Label({ text: DAYS_SHORT[i], style_class: 'taskman-cal-dow', x_expand: true, x_align: Clutter.ActorAlign.CENTER });
+            gl.attach(lbl, i, 0, 1, 1);
+        }
+
         const yr = this._viewYear, mo = this._viewMonth;
         const today = todayKey(), startDow = firstDayOfWeek(yr, mo);
         const totalDays = daysInMonth(yr, mo);
         const prevDays = daysInMonth(mo === 1 ? yr - 1 : yr, mo === 1 ? 12 : mo - 1);
 
-        let col = startDow, row = 0;
+        let col = startDow, row = 1;
         for (let i = 0; i < startDow; i++) {
             const pm = mo === 1 ? 12 : mo - 1, py = mo === 1 ? yr - 1 : yr;
             gl.attach(this._makeCell(py, pm, prevDays - startDow + 1 + i, true), i, 0, 1, 1);
