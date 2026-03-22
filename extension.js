@@ -331,22 +331,21 @@ const CalendarWidget = GObject.registerClass({
         header.add_child(nextBtn);
         this.add_child(header);
 
-        // Day grid (includes DOW labels in row 0)
+        // DOW row
+        const dowRow = new St.BoxLayout({ reactive: false });
+        for (const d of DAYS_SHORT)
+            dowRow.add_child(new St.Label({ text: d, style_class: 'taskman-cal-dow', x_align: Clutter.ActorAlign.CENTER }));
+        this.add_child(dowRow);
+
+        // Day grid
         const grid = new St.Widget({ layout_manager: new Clutter.GridLayout({ orientation: Clutter.Orientation.HORIZONTAL }), reactive: true });
         const gl = grid.layout_manager;
-
-        // DOW row (Row 0 in Grid)
-        for (let i = 0; i < 7; i++) {
-            const lbl = new St.Label({ text: DAYS_SHORT[i], style_class: 'taskman-cal-dow', x_expand: true, x_align: Clutter.ActorAlign.CENTER });
-            gl.attach(lbl, i, 0, 1, 1);
-        }
-
         const yr = this._viewYear, mo = this._viewMonth;
         const today = todayKey(), startDow = firstDayOfWeek(yr, mo);
         const totalDays = daysInMonth(yr, mo);
         const prevDays = daysInMonth(mo === 1 ? yr - 1 : yr, mo === 1 ? 12 : mo - 1);
 
-        let col = startDow, row = 1;
+        let col = startDow, row = 0;
         for (let i = 0; i < startDow; i++) {
             const pm = mo === 1 ? 12 : mo - 1, py = mo === 1 ? yr - 1 : yr;
             gl.attach(this._makeCell(py, pm, prevDays - startDow + 1 + i, true), i, 0, 1, 1);
@@ -432,7 +431,7 @@ const CalendarWidget = GObject.registerClass({
         const green = `rgb(${gV[0]},${gV[1]},${gV[2]})`;
         const red = `rgb(${rV[0]},${rV[1]},${rV[2]})`;
 
-        const CELL_H = 42;
+        const CELL_H = 35;
         const greenH = Math.round((done / total) * CELL_H);
         const redH = CELL_H - greenH;
 
@@ -451,8 +450,8 @@ const CalendarWidget = GObject.registerClass({
         } else {
             btn.set_style(`background: ${red}; border-radius: 6px; padding: 0;`);
             const overlay = new St.Widget({
-                x_expand: true, y_align: Clutter.ActorAlign.END,
-                style: `background: ${green}; min-height: ${greenH}px; max-height: ${greenH}px; border-radius: 0 0 6px 6px;`,
+                x_expand: true, y_expand: true, y_align: Clutter.ActorAlign.END,
+                style: `background: ${green}; min-height: ${greenH}px; max-height: ${greenH}px; border-radius: 3px 3px 6px 6px;`,
             });
             btn._container.insert_child_at_index(overlay, 0);
         }

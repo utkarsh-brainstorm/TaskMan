@@ -2,7 +2,7 @@
 
 > A calendar-integrated daily task manager and reminder system for the GNOME panel.
 
-![GNOME Shell](/home/heisenberg/.config/marktext/images/08fe78164e7a4942fc7ec9ba7558c95143916bbc.png)
+![GNOME Shell](tm.png)
 
 
 ---

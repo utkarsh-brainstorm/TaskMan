@@ -7,8 +7,8 @@
 /* --- Main popup container --- */
 .taskman-popup-content {
   padding: 0;
-  min-width: 380px;
-  max-width: 380px;
+  min-width: 350px;
+  max-width: 350px;
 }
 
 /* --- Calendar container --- */
@@ -47,16 +47,19 @@
   color: rgba(127, 127, 127, 0.75);
   text-align: center;
   padding: 2px 0 4px 0;
+  min-width: 48px;
+  max-width: 48px;
 }
 
 /* --- Day cells --- */
 .taskman-cal-day {
-  width: 44px;
-  height: 44px;
+
+  width: 38px;
+  height: 38px;
   border-radius: 6px;
-  margin: 1px;
-  padding: 0;
-  border: 1px solid transparent;
+  margin: 4px;
+  padding: 4;
+  border: 1px solid rgba(81, 81, 81, 0.45);
 }
 
 .taskman-cal-day:hover {
