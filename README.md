@@ -2,7 +2,7 @@
 
 > A calendar-integrated daily task manager and reminder system for the GNOME panel.
 
-![GNOME Shell](tm.png)
+![GNOME Shell](tmdl.png)
 
 
 ---
